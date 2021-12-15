@@ -48,7 +48,7 @@ class GameServiceTest {
 
     Game g2 = gameService.findGameScoreId(1);
     assertEquals(g2.getId(), game.getId());
-
+// yes
   }
 
   @Test
