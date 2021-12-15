@@ -19,17 +19,12 @@ public class GameResource {
     private final GameService gs;
     private final TurnService ts;
     private final TurnResource tr;
+
     @Autowired
     public GameResource(GameService gs, TurnService ts, TurnResource tr) {
         this.gs = gs;
         this.ts = ts;
         this.tr = tr;
-    }
-
-    @PostMapping("/add")
-    public ResponseEntity<Game> saveGame(@RequestBody Game game) {
-        Game gm = gs.addGame(game);
-        return new ResponseEntity<>(gm, HttpStatus.CREATED);
     }
 
     @GetMapping("/all")

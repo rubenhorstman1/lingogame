@@ -23,10 +23,6 @@ public class GameService {
         this.turnRepo = turnRepo;
     }
 
-    public Game addGame(Game game){
-        return gameRepo.save(game);
-    }
-
     public List<Game> findAllGames(){
         return gameRepo.findAll();
     }

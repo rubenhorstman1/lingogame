@@ -17,8 +17,8 @@ public class Word implements Serializable {
     @JoinColumn(name="turnid")
     private Turn turn;
 
-    public Word(){
-
+    public Word(String value){
+        this.value = value;
     }
 
     public int getId() {

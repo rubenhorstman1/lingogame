@@ -47,11 +47,7 @@ public class TurnService {
         return turns;
     }
 
-    public Turn createNew(Turn t) {
-        return turnRepo.save(t);
-    }
-
-    public Turn correctGuessedChars(Turn turn, String rw) throws FileNotFoundException {
+  public Turn correctGuessedChars(Turn turn, String rw) throws FileNotFoundException {
         randomword = rw;
         charFeedback = "";
         String numberOfLines = "";

@@ -17,7 +17,4 @@ public interface GameRepo extends JpaRepository<Game, Integer> {
     Game findGameId(int id);
     @Query(nativeQuery=true, value="SELECT score FROM game t WHERE t.id = ?1")
     Game findGameScoreId(int id);
-    @Modifying
-    @Query(nativeQuery=true, value="UPDATE game g set g.score = game.getScore() WHERE g.id = ?2")
-    Game updateG(Game game, int id);
 }
