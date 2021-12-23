@@ -1,20 +1,38 @@
 package com.lingogame.game.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "turn")
 public class Turn {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String randomWord;
     private String guessedWord;
     private int mistakes;
     private String feedback;
+    private String hint;
+
+    @ManyToOne
+    @JoinColumn(name = "game_id")
+    private Game game;
+
+    public Turn(String randomWord, String guessedWord, int mistakes, Game game, String feedback, String hint){
+        this.randomWord = randomWord;
+        this.guessedWord = guessedWord;
+        this.mistakes = mistakes;
+        this.game = game;
+        this.feedback =feedback;
+        this.hint = hint;
+    }
+
+    public Turn() {
+
+    }
 
     public String getHint() {
         return hint;
@@ -22,25 +40,6 @@ public class Turn {
 
     public void setHint(String hint) {
         this.hint = hint;
-    }
-
-    private String hint;
-
-    @ManyToOne
-    @JoinColumn(name = "game_id")
-    private Game game;
-
-    public Turn(Long id,String randomWord, String guessedWord, int mistakes, Game game,String feedback){
-        this.id=id;
-        this.randomWord = randomWord;
-        this.guessedWord = guessedWord;
-        this.mistakes = mistakes;
-        this.game = game;
-        this.feedback =feedback;
-    }
-
-    public Turn() {
-
     }
 
     @JsonIgnore
@@ -76,11 +75,11 @@ public class Turn {
         this.mistakes = mistakes;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

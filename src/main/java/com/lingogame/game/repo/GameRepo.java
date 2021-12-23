@@ -15,6 +15,4 @@ import java.util.List;
 public interface GameRepo extends JpaRepository<Game, Integer> {
     @Query(nativeQuery=true, value="SELECT * FROM game t WHERE t.id = ?1")
     Game findGameId(int id);
-    @Query(nativeQuery=true, value="SELECT score FROM game t WHERE t.id = ?1")
-    Game findGameScoreId(int id);
 }

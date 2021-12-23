@@ -29,20 +29,14 @@ public class UserResource {
         Game game = gameService.createGame();
         user.setGame(game);
         User s = userService.createNew(user);
-        if (game != null){
-            return new ResponseEntity<>(s, HttpStatus.CREATED);
-        }else{
-            return null;
-        }
+        return new ResponseEntity<>(s, HttpStatus.CREATED);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Optional<User>> login(@RequestBody User user) {
+    @PostMapping("{id}")
+    public ResponseEntity<Optional<User>> login(@PathVariable int id) {
+        User user = new User(id);
         Optional<User> u = userService.findById(user);
-        if (u.get().getName() != null){
-            return new ResponseEntity<>(u, HttpStatus.CREATED);
-        }else{
-            return null;
-        }
+        System.out.println("yes");
+        return new ResponseEntity<>(u, HttpStatus.CREATED);
     }
 }

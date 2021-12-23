@@ -18,23 +18,11 @@ public class Word implements Serializable {
     private Turn turn;
 
     public Word(String value){
-        this.value = value;
+        this.value  = value;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public Word() {
 
-    public Turn getTurn() {
-        return turn;
     }
-
-    public void setTurn(Turn turn) {
-        this.turn = turn;
-    }
-
 }

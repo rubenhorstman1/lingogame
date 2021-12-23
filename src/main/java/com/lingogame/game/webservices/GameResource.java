@@ -27,10 +27,10 @@ public class GameResource {
         this.tr = tr;
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<Game>> getGames(){
-        List<Game> games = gs.findAllGames();
-        return new ResponseEntity<>(games, HttpStatus.OK);
+    @PostMapping("/add")
+    public ResponseEntity<Game> saveGame(@RequestBody Game game) {
+        Game gm = gs.addGame(game);
+        return new ResponseEntity<>(gm, HttpStatus.CREATED);
     }
 
     @GetMapping("/{gameid}")

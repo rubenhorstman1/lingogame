@@ -38,7 +38,6 @@ public class TurnResource {
         return t;
     }
 
-    @Transactional
     @PostMapping("{gameid}")
     public ResponseEntity<Turn> guessWord(@RequestBody Turn turn, @PathVariable int gameid) throws FileNotFoundException {
         if(randomword == null){
@@ -49,13 +48,13 @@ public class TurnResource {
         turn.setGame(g);
         turn.setRandomWord(randomword);
         Turn t = turnService.correctGuessedChars(turn, randomword); //get new turn object.
+        System.out.println(t);
         randomword = t.getRandomWord();
         return new ResponseEntity<>(t, HttpStatus.CREATED);
     }
 
     @GetMapping("/all/{id}")
     public ResponseEntity<List<Turn>> getRounds(@PathVariable int id) {
-        System.out.println(id);
         List<Turn> turns = turnService.findRounds(id);
         return new ResponseEntity<>(turns, HttpStatus.OK);
     }

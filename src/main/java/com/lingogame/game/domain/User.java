@@ -17,10 +17,19 @@ public class User {
 
     }
 
-    public User(int id, Game game, String name) {
-        this.id = id;
+    public User(Game game, String name) {
         this.game = game;
         this.name =name;
+    }
+
+    public User(Game game, String name, int id) {
+        this.game = game;
+        this.name =name;
+        this.id  = id;
+    }
+
+    public User(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -38,6 +47,7 @@ public class User {
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;

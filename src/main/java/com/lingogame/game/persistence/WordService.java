@@ -14,22 +14,12 @@ import java.util.Random;
 
 @Service
 public class WordService {
-    private final WordRepo wordRepo;
     private TextDeserializer textDeserializer;
-    private String randomWord;
+    public String randomWord;
 
     @Autowired
-    public WordService(WordRepo wordRepo, TextDeserializer textDeserializer) {
-        this.wordRepo = wordRepo;
+    public WordService(TextDeserializer textDeserializer) {
         this.textDeserializer = textDeserializer;
-    }
-
-    public Word addWord(Word word){
-        return wordRepo.save(word);
-    }
-
-    public List<Word> findWords(){
-        return wordRepo.findAll();
     }
 
     public String ReturnFirstChar(String numberOfLines) {

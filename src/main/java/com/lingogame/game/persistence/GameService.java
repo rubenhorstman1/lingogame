@@ -8,11 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Transactional
 public class GameService {
     private final GameRepo gameRepo;
     private final TurnRepo turnRepo;
@@ -23,18 +21,11 @@ public class GameService {
         this.turnRepo = turnRepo;
     }
 
-    public List<Game> findAllGames(){
-        return gameRepo.findAll();
+    public Game addGame(Game game){
+        return gameRepo.save(game);
     }
 
     public Game findGameId(int id){
-        Game g = gameRepo.findGameId(id);
-        List<Turn> t = turnRepo.findAllTurnsById(g.getId());
-        g.setTurns(t);
-        return g;
-    }
-
-    public Game findGameScoreId(int id){
         Game g = gameRepo.findGameId(id);
         List<Turn> t = turnRepo.findAllTurnsById(g.getId());
         g.setTurns(t);
@@ -49,6 +40,5 @@ public class GameService {
     public Game updateGame(Game game){
         return gameRepo.save(game);
     }
-
 
 }

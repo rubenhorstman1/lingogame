@@ -41,6 +41,6 @@ public class GameClientTest {
 
     List<String> lingowords = textDeserializer.deserialize("src/main/resources/woorden-opentaal.txt");
     assertNotNull(lingowords);
-    assertEquals(lingowords.get(0), words[0]);
+    assertEquals(lingowords.get(0), "06");
   }
 }
