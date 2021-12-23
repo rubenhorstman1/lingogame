@@ -36,7 +36,7 @@ public class GameClientTest {
     Word word2 = new Word("tested");
     Word word3 = new Word("testje");
     Word[] words = {word1, word2, word3};
-
+    //test
     Mockito.when(restTemplate.getForEntity(any(String.class), any())).thenReturn(new ResponseEntity<>(words, HttpStatus.OK));
 
     List<String> lingowords = textDeserializer.deserialize("src/main/resources/woorden-opentaal.txt");
