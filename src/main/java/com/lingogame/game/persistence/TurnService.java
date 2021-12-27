@@ -130,7 +130,7 @@ public class TurnService {
             if ((stringCorrectChars.indexOf(currentChar)) >= 0) {
                 charFeedback += "present, ";
             }
-            else {
+            else if(stringCorrectChars.indexOf(currentChar) < 0){
                 charFeedback += "present, ";
             }
         } else {
