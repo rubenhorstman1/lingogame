@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/round")
+@RequestMapping("/turn")
 public class TurnResource {
     private final TurnService turnService;
     private final WordService wordService;
@@ -47,6 +47,7 @@ public class TurnResource {
         turn.setRandomWord(randomword);
         Turn t = turnService.correctGuessedChars(turn, randomword); //get new turn object.
         randomword = t.getRandomWord();
+        System.out.println(t.getMistakes());
         return new ResponseEntity<>(t, HttpStatus.CREATED);
     }
 

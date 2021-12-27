@@ -47,7 +47,7 @@ class TurnResourceTest {
 
         Mockito.when(wordService.ReturnFirstChar("")).thenReturn(value);
 
-        mockMvc.perform(get("/round/word/" + length).accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/turn/word/" + length).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.hint").value(value));
@@ -73,7 +73,7 @@ class TurnResourceTest {
 
         Mockito.when(turnService.correctGuessedChars(any(Turn.class), any(String.class))).thenReturn(turn);
 
-        mockMvc.perform(post("/round/"+ game.getId()).contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/turn/"+ game.getId()).contentType(MediaType.APPLICATION_JSON)
                         .content(asJsonString(turn)))
                         .andExpect(status().isCreated());
     }
@@ -106,7 +106,7 @@ class TurnResourceTest {
 
         Mockito.when(turnService.findRounds(turn.getId())).thenReturn(turns);
 
-        mockMvc.perform(get("/round/all/" + turn.getId()).accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/turn/all/" + turn.getId()).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].id").value(turn.getId()))

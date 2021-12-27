@@ -27,10 +27,10 @@ public class UserResource {
         return new ResponseEntity<>(s, HttpStatus.CREATED);
     }
 
-    @PostMapping("{id}")
+    @GetMapping("{id}")
     public ResponseEntity<Optional<User>> login(@PathVariable int id) {
         User user = new User(id);
         Optional<User> u = userService.findById(user);
-        return new ResponseEntity<>(u, HttpStatus.CREATED);
+        return new ResponseEntity<>(u, HttpStatus.OK);
     }
 }

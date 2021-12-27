@@ -45,6 +45,7 @@ public class TurnService {
         randomword = rw;
         charFeedback = "";
         String numberOfLines = "";
+        System.out.println(randomword);
         if (turn.getMistakes() < 5) {
             if (turn.getGuessedWord().equals(randomword)) {//als het in een keer goed is
                 hint = "correct";

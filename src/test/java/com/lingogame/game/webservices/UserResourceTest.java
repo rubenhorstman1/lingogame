@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.Optional;
 
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -70,9 +71,8 @@ class UserResourceTest {
 
         Mockito.when(userService.findById(any(User.class))).thenReturn(Optional.of(user));
 
-        mockMvc.perform(post("/player/"+user.getId()).contentType(MediaType.APPLICATION_JSON)
-                        .content(asJsonString(user)))
-                .andExpect(status().isCreated());
+        mockMvc.perform(get("/player/"+user.getId()).accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
 
     }
 
