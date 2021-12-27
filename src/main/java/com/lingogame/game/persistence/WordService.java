@@ -22,8 +22,7 @@ public class WordService {
         for (int i = 0; i < randomWord.length() - 1; i++) {
             numberOfLines += "_";
         }
-        String returnWaarde = randomWord.substring(0, 1) + numberOfLines + " " + randomWord.length() + " tekens lang";
-        return returnWaarde;
+        return randomWord.substring(0, 1) + numberOfLines + " " + randomWord.length() + " tekens lang";
     }
 
     public String returnRandomWord(int size) throws FileNotFoundException {//geeft een random woord terug

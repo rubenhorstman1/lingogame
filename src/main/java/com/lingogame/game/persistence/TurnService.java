@@ -38,8 +38,7 @@ public class TurnService {
     }
 
     public List<Turn> findRounds(Integer id){
-        List<Turn>turns = turnRepo.findAllTurnsById(id);
-        return turns;
+        return turnRepo.findAllTurnsById(id);
     }
 
     public Turn correctGuessedChars(Turn turn, String rw) throws FileNotFoundException {
@@ -129,7 +128,8 @@ public class TurnService {
         if ((randomwoord.indexOf(currentChar)) >= 0) {
             if ((stringCorrectChars.indexOf(currentChar)) >= 0) {
                 charFeedback += "present, ";
-            } else {//als de letter nog niet al gekozen is
+            }
+            else {
                 charFeedback += "present, ";
             }
         } else {

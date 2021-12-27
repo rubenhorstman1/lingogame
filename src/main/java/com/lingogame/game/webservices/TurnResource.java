@@ -45,7 +45,6 @@ public class TurnResource {
         turn.setGame(g);
         turn.setRandomWord(randomword);
         Turn t = turnService.correctGuessedChars(turn, randomword); //get new turn object.
-        System.out.println(t);
         randomword = t.getRandomWord();
         return new ResponseEntity<>(t, HttpStatus.CREATED);
     }

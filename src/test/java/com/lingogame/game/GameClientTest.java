@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 
 @SpringBootTest
-public class GameClientTest {
+class GameClientTest {
 
   @MockBean
   RestTemplate restTemplate;
@@ -41,6 +41,6 @@ public class GameClientTest {
 
     List<String> lingowords = textDeserializer.deserialize("src/main/resources/woorden-opentaal.txt");
     assertNotNull(lingowords);
-    assertEquals(lingowords.get(0), "06");
+    assertEquals("06",lingowords.get(0));
   }
 }

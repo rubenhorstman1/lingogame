@@ -31,7 +31,6 @@ public class UserResource {
     public ResponseEntity<Optional<User>> login(@PathVariable int id) {
         User user = new User(id);
         Optional<User> u = userService.findById(user);
-        System.out.println("yes");
         return new ResponseEntity<>(u, HttpStatus.CREATED);
     }
 }

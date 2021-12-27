@@ -12,14 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/game")
 public class GameResource {
     private final GameService gs;
-    private final TurnService ts;
-    private final TurnResource tr;
 
     @Autowired
-    public GameResource(GameService gs, TurnService ts, TurnResource tr) {
+    public GameResource(GameService gs) {
         this.gs = gs;
-        this.ts = ts;
-        this.tr = tr;
     }
 
     @PostMapping("/add")
