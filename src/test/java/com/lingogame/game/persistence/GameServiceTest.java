@@ -1,17 +1,12 @@
 package com.lingogame.game.persistence;
 
 import com.lingogame.game.domain.Game;
-import com.lingogame.game.domain.Turn;
-import com.lingogame.game.domain.User;
 import com.lingogame.game.repo.GameRepo;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-
-import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;

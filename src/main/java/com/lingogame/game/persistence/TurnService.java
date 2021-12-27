@@ -3,16 +3,12 @@ package com.lingogame.game.persistence;
 import com.lingogame.game.domain.Game;
 import com.lingogame.game.domain.Turn;
 import com.lingogame.game.repo.TurnRepo;
-import com.lingogame.game.webservices.TurnResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+
 
 @Service
 @Transactional

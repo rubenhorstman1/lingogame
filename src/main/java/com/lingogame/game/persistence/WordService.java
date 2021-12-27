@@ -1,15 +1,11 @@
 package com.lingogame.game.persistence;
 
-import com.lingogame.game.domain.Word;
-import com.lingogame.game.repo.WordRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Random;
 
 @Service

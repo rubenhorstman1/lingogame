@@ -3,7 +3,6 @@ package com.lingogame.game.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity(name = "turn")
 public class Turn {
