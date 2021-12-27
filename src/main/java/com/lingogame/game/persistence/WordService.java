@@ -27,7 +27,6 @@ public class WordService {
             numberOfLines += "_";
         }
         String returnWaarde = randomWord.substring(0, 1) + numberOfLines + " " + randomWord.length() + " tekens lang";
-        System.out.println(returnWaarde+" randomWord "+randomWord);
         return returnWaarde;
     }
 
@@ -39,7 +38,6 @@ public class WordService {
         List<String> checkedWords = loopTroughWords(lingowords, size);
         int rnd = new Random().nextInt(checkedWords.size());
         randomWord = checkedWords.get(rnd);
-        System.out.println(randomWord+" random ");
         return randomWord;
     }
 

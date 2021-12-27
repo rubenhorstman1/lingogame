@@ -107,7 +107,6 @@ public class TurnService {
             String real = compareHint(stringCorrecteChars, turn);
             stringCorrecteChars = real;
         }
-        System.out.println(stringCorrecteChars);
         return stringCorrecteChars;
     }
 
@@ -131,21 +130,16 @@ public class TurnService {
     }
 
     public String checkCharPresentOrAbsent(char currentChar, String stringCorrectChars, String randomwoord) {
-        if ((randomwoord.indexOf(currentChar)) >= 0) {//als de letter een positie groter dan 0 heeft oftewel erin zit
-            //check of het letter al geweest is
-            if ((stringCorrectChars.indexOf(currentChar)) >= 0) {//als de letter al gekozen is
+        if ((randomwoord.indexOf(currentChar)) >= 0) {
+            if ((stringCorrectChars.indexOf(currentChar)) >= 0) {
                 charFeedback += "present, ";
-                //System.out.println(currentChar + " " + charFeedback + " deze letter zit er zovaak in " + currentCharOccuranceInRandomWord);// letter is al geweest maar niet correct
             } else {//als de letter nog niet al gekozen is
                 charFeedback += "present, ";
-                //System.out.println(currentChar + " " + charFeedback + " deze letter zit niet op de goede plek");
             }
         } else {
             charFeedback += "absent, ";
-            //System.out.println(currentChar + " " + charFeedback + " deze letter zit  er niet in");
         }
         stringCorrectChars += '_';
-        System.out.println(stringCorrectChars);
         return stringCorrectChars;
     }
 }
