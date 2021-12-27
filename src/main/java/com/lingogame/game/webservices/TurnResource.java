@@ -31,6 +31,7 @@ public class TurnResource {
         randomword = wordService.returnRandomWord(length);
         String firstLetter = wordService.ReturnFirstChar(numberOfLines);
         Turn t = new Turn();
+        //
         t.setHint(firstLetter);
         return t;
     }
