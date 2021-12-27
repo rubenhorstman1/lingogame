@@ -2,7 +2,6 @@ package com.lingogame.game.webservices;
 
 import com.lingogame.game.domain.Game;
 import com.lingogame.game.persistence.GameService;
-import com.lingogame.game.persistence.TurnService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
