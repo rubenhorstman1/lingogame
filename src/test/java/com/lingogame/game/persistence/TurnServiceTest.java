@@ -4,6 +4,7 @@ import com.lingogame.game.domain.Game;
 import com.lingogame.game.domain.Turn;
 import com.lingogame.game.repo.GameRepo;
 import com.lingogame.game.repo.TurnRepo;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -40,6 +41,7 @@ class TurnServiceTest {
     private TurnRepo turnRepo;
 
     @Test
+    @DisplayName("plays a round in game")
     void addRound() {
         Game game = new Game(
                 1, 0, "unfinished"
@@ -60,6 +62,7 @@ class TurnServiceTest {
     }
 
     @Test
+    @DisplayName("gets the randomword for the game")
     void findRandomWordOnGameId() {
         Game game = new Game(
                 0, "unfinished"
@@ -83,6 +86,7 @@ class TurnServiceTest {
     }
 
     @Test
+    @DisplayName("finds the round for the game")
     void findRounds() {
         Game game = new Game(
                 1, 0, "unfinished"
@@ -108,6 +112,7 @@ class TurnServiceTest {
     }
 
     @ParameterizedTest
+    @DisplayName("checks the correctchars")
     @MethodSource("correctGuessedChar")
     void correctGuessedChars(Turn input, Turn expected) throws FileNotFoundException {
         Turn t = turnService.correctGuessedChars(input, input.getRandomWord());
@@ -182,6 +187,7 @@ class TurnServiceTest {
 
 
     @ParameterizedTest
+    @DisplayName("checked the guessed chars")
     @MethodSource("checkGuessedChar")
     void checkGuessedChars(Turn input, Turn expected) {
         String uitkomst = turnService.checkGuessedChars(input);
@@ -213,6 +219,7 @@ class TurnServiceTest {
 
 
     @ParameterizedTest
+    @DisplayName("checks the char on present or absent")
     @MethodSource("checkChar")
     void checkCharPresentOrAbsent(char currentChar, String correctChar, String randomword, String expected) {
 

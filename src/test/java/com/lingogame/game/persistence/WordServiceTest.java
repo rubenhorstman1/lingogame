@@ -1,6 +1,7 @@
 package com.lingogame.game.persistence;
 
 import com.lingogame.game.repo.WordRepo;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -28,6 +29,7 @@ class WordServiceTest {
     private TextDeserializer textDeserializer;
 
     @ParameterizedTest
+    @DisplayName("returns hint")
     @MethodSource("returnFirst")
     void returnFirstChar(String value, String expected) {
         wordService.randomWord = value;
@@ -47,6 +49,7 @@ class WordServiceTest {
 
 
     @ParameterizedTest
+    @DisplayName("returns randomword")
     @MethodSource("returnRandomWords")
     void returnRandomWord(int length, String expected) throws FileNotFoundException {
         String woord= wordService.returnRandomWord(length);
@@ -65,6 +68,7 @@ class WordServiceTest {
 
 
     @ParameterizedTest
+    @DisplayName("puts the words in a array")
     @MethodSource("loop")
     void loopTroughWords(String value, int size, String expected) throws FileNotFoundException {
         List<String> words = new ArrayList<>();

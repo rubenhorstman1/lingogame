@@ -1,5 +1,6 @@
 package com.lingogame.game.persistence;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -23,6 +24,7 @@ class TextDeserializerTest {
     private TextDeserializer textDeserializer;
 
     @ParameterizedTest
+    @DisplayName("strips the file and puts the words in a array")
     @MethodSource("deserializes")
     void deserialize(String file, int position, String expected) throws FileNotFoundException {
         List<String> files = fileDeserializerInterface.deserialize(file);

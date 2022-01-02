@@ -3,6 +3,7 @@ package com.lingogame.game.webservices;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lingogame.game.domain.Game;
 import com.lingogame.game.persistence.GameService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ class GameResourceTest {
     private GameService gameService;
 
     @Test
+    @DisplayName("save a game")
     void saveGame() throws Exception {
         Game game = new Game();
 
@@ -48,6 +50,7 @@ class GameResourceTest {
     }
 
     @Test
+    @DisplayName("gets a certain game")
     void getGameId() throws Exception {
         Game game = new Game();
         game.setState("unfinished");

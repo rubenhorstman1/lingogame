@@ -5,6 +5,7 @@ import com.lingogame.game.domain.Game;
 import com.lingogame.game.domain.User;
 import com.lingogame.game.persistence.GameService;
 import com.lingogame.game.persistence.UserService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ class UserResourceTest {
     private UserService userService;
 
     @Test
+    @DisplayName("creates a new game")
     void createNew() throws Exception {
         Game game = new Game();
 
@@ -58,6 +60,7 @@ class UserResourceTest {
     }
 
     @Test
+    @DisplayName("uses users id to go to game")
     void login() throws Exception {
         Game game = new Game();
 

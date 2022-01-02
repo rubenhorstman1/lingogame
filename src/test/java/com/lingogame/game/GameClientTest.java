@@ -29,7 +29,7 @@ class GameClientTest {
   TextDeserializer textDeserializer;
 
   @Test
-  @DisplayName("import words - happy")
+  @DisplayName("import words")
   void ImportWords() throws FileNotFoundException {
 
     Word word1 = new Word("tester");

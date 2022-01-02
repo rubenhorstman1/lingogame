@@ -2,6 +2,7 @@ package com.lingogame.game.persistence;
 
 import com.lingogame.game.domain.Game;
 import com.lingogame.game.repo.GameRepo;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ class GameServiceTest {
     private GameRepo gameRepo;
 
     @Test
+    @DisplayName("find game on id")
     void findGameId() {
         Game game = new Game(
                 0,"unfinished"
@@ -35,6 +37,7 @@ class GameServiceTest {
     }
 
     @Test
+    @DisplayName("add a game")
     void addGame(){
         Game game = new Game(
                 1, 0, "unfinished"
@@ -48,6 +51,7 @@ class GameServiceTest {
     }
 
     @Test
+    @DisplayName("creates a game")
     void createGame() {
         Game game = new Game(
                 0,"unfinished"
@@ -60,6 +64,7 @@ class GameServiceTest {
     }
 
     @Test
+    @DisplayName("update a game")
     void updateGame() {
         Game game = new Game(
                 100,"finished"

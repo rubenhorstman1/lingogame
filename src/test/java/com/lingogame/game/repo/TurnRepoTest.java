@@ -2,6 +2,7 @@ package com.lingogame.game.repo;
 
 import com.lingogame.game.domain.Game;
 import com.lingogame.game.domain.Turn;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,6 +24,7 @@ class TurnRepoTest {
     private Turn turn;
 
     @Test
+    @DisplayName("finds all turns by game")
     void findAllTurnsById() {
         List<Turn> ts = new ArrayList<>();
 
@@ -54,6 +56,7 @@ class TurnRepoTest {
     }
 
     @Test
+    @DisplayName("finds the randomword from the game")
     void findRandomWordOnGameId() {
 
         Game game = new Game(
