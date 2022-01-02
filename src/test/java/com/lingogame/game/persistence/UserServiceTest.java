@@ -4,6 +4,7 @@ import com.lingogame.game.domain.Game;
 import com.lingogame.game.domain.User;
 import com.lingogame.game.repo.UserRepo;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ class UserServiceTest {
     private UserService userService;
 
     @Test
+    @DisplayName("creates a new user with game")
     void createNew() {
         Game game = new Game(
                 50, "in progress"
@@ -45,6 +47,7 @@ class UserServiceTest {
     }
 
     @Test
+    @DisplayName("finds user on id")
     void findById() {
         Game game = new Game(
                 50, "in progress"

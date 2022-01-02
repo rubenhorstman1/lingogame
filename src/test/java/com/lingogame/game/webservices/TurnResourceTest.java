@@ -6,6 +6,7 @@ import com.lingogame.game.domain.Turn;
 
 import com.lingogame.game.persistence.TurnService;
 import com.lingogame.game.persistence.WordService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import org.mockito.Mockito;
@@ -41,6 +42,7 @@ class TurnResourceTest {
 
 
     @Test
+    @DisplayName("gets a random word")
     void getRandomWord() throws Exception {
         String value ="h____";
         int length = 5;
@@ -54,6 +56,7 @@ class TurnResourceTest {
     }
 
     @Test
+    @DisplayName("tries to guess the word")
     void guessWord() throws Exception {
         Game game = new Game(
                 1, 0, "unfinished"
@@ -88,6 +91,7 @@ class TurnResourceTest {
 
 
     @Test
+    @DisplayName("gets the rounds of the game")
     void getRounds() throws Exception {
         Game game = new Game(
                 1, 0, "unfinished"
