@@ -45,7 +45,7 @@ class TurnResourceTest {
         String value ="h____";
         int length = 5;
 
-        Mockito.when(wordService.ReturnFirstChar("")).thenReturn(value);
+        Mockito.when(wordService.returnHint("")).thenReturn(value);
 
         mockMvc.perform(get("/turn/word/" + length).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())

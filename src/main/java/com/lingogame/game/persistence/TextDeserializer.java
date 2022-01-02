@@ -14,8 +14,8 @@ public class TextDeserializer implements FileDeserializerInterface {
     @Override
     public List<String> deserialize(String file) throws FileNotFoundException {
         List<String> words = new ArrayList<>();
-        File myObj = new File(file);
-        Scanner myReader = new Scanner(myObj);
+        File fl = new File(file);
+        Scanner myReader = new Scanner(fl);
         while (myReader.hasNextLine()) {
             String data = myReader.nextLine();
             words.add(data);

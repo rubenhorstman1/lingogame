@@ -32,7 +32,7 @@ class WordServiceTest {
     void returnFirstChar(String value, String expected) {
         wordService.randomWord = value;
 
-        String woord = wordService.ReturnFirstChar("");
+        String woord = wordService.returnHint("");
 
         assertEquals(woord, expected);
     }
@@ -70,7 +70,7 @@ class WordServiceTest {
         List<String> words = new ArrayList<>();
         words.add(value);
 
-        List<String> d= wordService.loopTroughWords(words, size);
+        List<String> d= wordService.loopWords(words, size);
         assertEquals(d.get(0), expected);
     }
 

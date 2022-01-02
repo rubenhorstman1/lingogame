@@ -18,7 +18,7 @@ public class WordService {
         this.textDeserializer = textDeserializer;
     }
 
-    public String ReturnFirstChar(String numberOfLines) {
+    public String returnHint(String numberOfLines) {
         for (int i = 0; i < randomWord.length() - 1; i++) {
             numberOfLines += "_";
         }
@@ -29,14 +29,14 @@ public class WordService {
         if(size > 7 || size < 5){
             size = 5;
         }
-        List<String> lingowords = textDeserializer.deserialize("src/main/resources/woorden-opentaal.txt");
-        List<String> checkedWords = loopTroughWords(lingowords, size);
+        List<String> words = textDeserializer.deserialize("src/main/resources/woorden-opentaal.txt");
+        List<String> checkedWords = loopWords(words, size);
         int rnd = new Random().nextInt(checkedWords.size());
         randomWord = checkedWords.get(rnd);
         return randomWord;
     }
 
-    public List<String> loopTroughWords(List<String> content, int size) {//looped door de woorden heen en stopt ze in een array
+    public List<String> loopWords(List<String> content, int size) {//looped door de woorden heen en stopt ze in een array
         List<String> checkedWords = new ArrayList<>();
         for (int i = 0; i < content.size(); i++) {
             if(content.get(i).length() == size) {

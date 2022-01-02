@@ -58,7 +58,7 @@ public class TurnService {
                 Game g = new Game(turn.getGame().getId(), score, "in progress");
                 gameService.updateGame(g);
                 randomword = wordService.returnRandomWord((randomword.length()+1));
-                String firstLetter = wordService.ReturnFirstChar(numberOfLines);
+                String firstLetter = wordService.returnHint(numberOfLines);
                 Turn t = new Turn();
                 t.setRandomWord(randomword);
                 t.setHint(firstLetter);
@@ -82,27 +82,27 @@ public class TurnService {
 
     public String checkGuessedChars(Turn turn) {
         int counter = 0;
-        String stringCorrecteChars = "";
+        String correctChars = "";
         if (turn.getRandomWord().length() != turn.getGuessedWord().length()) {
             for (char letter: turn.getGuessedWord().toCharArray()) {
                 charFeedback += "invalid, ";
             }
-            stringCorrecteChars= "Het gerade woord is niet de juiste lengte";
+            correctChars= "Het gerade woord is niet de juiste lengte";
         } else {
             for (char letter : turn.getRandomWord().toCharArray()) {
-                char currentChar = turn.getGuessedWord().charAt(counter);//het karakter dat we nu checken
-                if (letter == turn.getGuessedWord().charAt(counter)) {//als de letters op de goede plek staan
+                char currentChar = turn.getGuessedWord().charAt(counter);
+                if (letter == turn.getGuessedWord().charAt(counter)) {
                     charFeedback += "correct, ";
-                    stringCorrecteChars += letter;
-                } else  {//als de letters niet op de goede plek staan
-                    stringCorrecteChars = checkCharPresentOrAbsent(currentChar, stringCorrecteChars, turn.getRandomWord());
+                    correctChars += letter;
+                } else  {
+                    correctChars = checkCharPresentOrAbsent(currentChar, correctChars, turn.getRandomWord());
                 }
                 counter++;
             }
-            String real = compareHint(stringCorrecteChars, turn);
-            stringCorrecteChars = real;
+            String real = compareHint(correctChars, turn);
+            correctChars = real;
         }
-        return stringCorrecteChars;
+        return correctChars;
     }
 
     public String compareHint(String hint, Turn turn){
@@ -124,18 +124,18 @@ public class TurnService {
         return correcthint;
     }
 
-    public String checkCharPresentOrAbsent(char currentChar, String stringCorrectChars, String randomwoord) {
+    public String checkCharPresentOrAbsent(char currentChar, String correctChars, String randomwoord) {
         if ((randomwoord.indexOf(currentChar)) >= 0) {
-            if ((stringCorrectChars.indexOf(currentChar)) >= 0) {
+            if ((correctChars.indexOf(currentChar)) >= 0) {
                 charFeedback += "present, ";
             }
-            else if(stringCorrectChars.indexOf(currentChar) < 0){
+            else if(correctChars.indexOf(currentChar) < 0){
                 charFeedback += "present, ";
             }
         } else {
             charFeedback += "absent, ";
         }
-        stringCorrectChars += '_';
-        return stringCorrectChars;
+        correctChars += '_';
+        return correctChars;
     }
 }

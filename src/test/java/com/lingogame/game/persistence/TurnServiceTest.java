@@ -27,15 +27,6 @@ class TurnServiceTest {
     @Autowired
     private TurnService turnService;
 
-    @Autowired
-    private WordService wordService;
-
-    @Autowired
-    private GameService gameService;
-
-    @MockBean
-    private GameRepo gameRepo;
-
     @MockBean
     private TurnRepo turnRepo;
 

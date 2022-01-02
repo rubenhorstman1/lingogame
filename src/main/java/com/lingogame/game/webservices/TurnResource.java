@@ -29,7 +29,7 @@ public class TurnResource {
     public Turn getRandomWord(@PathVariable int length) throws FileNotFoundException {//geeft een random woord terug aan het get request met alleen de eerste letter zichtbaar
         String numberOfLines = "";
         randomword = wordService.returnRandomWord(length);
-        String firstLetter = wordService.ReturnFirstChar(numberOfLines);
+        String firstLetter = wordService.returnHint(numberOfLines);
         Turn t = new Turn();
         //
         t.setHint(firstLetter);
