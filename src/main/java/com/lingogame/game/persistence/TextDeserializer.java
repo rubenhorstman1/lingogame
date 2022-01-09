@@ -15,12 +15,12 @@ public class TextDeserializer implements FileDeserializerInterface {
     public List<String> deserialize(String file) throws FileNotFoundException {
         List<String> words = new ArrayList<>();
         File fl = new File(file);
-        Scanner myReader = new Scanner(fl);
-        while (myReader.hasNextLine()) {
-            String data = myReader.nextLine();
+        Scanner sc = new Scanner(fl);
+        while (sc.hasNextLine()) {
+            String data = sc.nextLine();
             words.add(data);
         }
-        myReader.close();
+        sc.close();
         return words;
     }
 }

@@ -19,13 +19,13 @@ public class WordService {
     }
 
     public String returnHint(String numberOfLines) {
-        for (int i = 0; i < randomWord.length() - 1; i++) {
-            numberOfLines += "_";
+        for (char letter: randomWord.toCharArray()) {
+          numberOfLines += "_";
         }
         return randomWord.substring(0, 1) + numberOfLines + " " + randomWord.length() + " tekens lang";
     }
 
-    public String returnRandomWord(int size) throws FileNotFoundException {//geeft een random woord terug
+    public String returnRandomWord(int size) throws FileNotFoundException {
         if(size > 7 || size < 5){
             size = 5;
         }
@@ -36,7 +36,7 @@ public class WordService {
         return randomWord;
     }
 
-    public List<String> loopWords(List<String> content, int size) {//looped door de woorden heen en stopt ze in een array
+    public List<String> loopWords(List<String> content, int size) {
         List<String> checkedWords = new ArrayList<>();
         for (int i = 0; i < content.size(); i++) {
             if(content.get(i).length() == size) {
@@ -46,5 +46,4 @@ public class WordService {
         }
         return checkedWords;
     }
-
 }

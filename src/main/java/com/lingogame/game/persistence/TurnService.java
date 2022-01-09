@@ -65,7 +65,7 @@ public class TurnService {
                 t.setMistakes(0);
                 t.setGame(g);
                 return t;
-            } else {//als het niet in een keer goed geraden is
+            } else {
                 turn.setHint(checkGuessedChars(turn));
                 turn.setFeedback(charFeedback);
                 turn.setMistakes(turn.getMistakes()+1);
