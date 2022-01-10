@@ -21,6 +21,7 @@ public class TextDeserializer implements FileDeserializerInterface {
             words.add(data);
         }
         sc.close();
+        //test
         return words;
     }
 }
