@@ -17,11 +17,10 @@ public class TextDeserializer implements FileDeserializerInterface {
         File fl = new File(file);
         Scanner sc = new Scanner(fl);
         while (sc.hasNextLine()) {
-            String data = sc.nextLine();
-            words.add(data);
+            String word = sc.nextLine();
+            words.add(word);
         }
         sc.close();
-        //test
         return words;
     }
 }
