@@ -19,8 +19,8 @@ public class WordService {
     }
 
     public String returnHint(String numberOfLines) {
-        for (char letter: randomWord.toCharArray()) {
-          numberOfLines += "_";
+        for (int i = 0; i < randomWord.length() - 1; i++) {
+            numberOfLines += "_";
         }
         return randomWord.substring(0, 1) + numberOfLines + " " + randomWord.length() + " tekens lang";
     }
