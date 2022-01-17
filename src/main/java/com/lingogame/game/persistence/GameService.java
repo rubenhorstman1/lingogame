@@ -27,6 +27,7 @@ public class GameService {
     public Game findGameId(int id){
         Game g = gameRepo.findGameId(id);
         List<Turn> t = turnRepo.findAllTurnsById(g.getId());
+        System.out.println(t.size());
         g.setTurns(t);
         return g;
     }

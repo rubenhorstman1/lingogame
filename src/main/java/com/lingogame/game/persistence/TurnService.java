@@ -85,9 +85,9 @@ public class TurnService {
         String correctChars = "";
         if (turn.getRandomWord().length() != turn.getGuessedWord().length()) {
             for (char letter: turn.getGuessedWord().toCharArray()) {
-                charFeedback += "invalid, ";
+                charFeedback = "Het gerade woord is niet de juiste lengte";
             }
-            correctChars= "Het gerade woord is niet de juiste lengte";
+            correctChars= turn.getHint();
         } else {
             for (char letter : turn.getRandomWord().toCharArray()) {
                 char currentChar = turn.getGuessedWord().charAt(counter);
@@ -100,6 +100,7 @@ public class TurnService {
                 counter++;
             }
             String real = compareHint(correctChars, turn);
+            System.out.println(real);
             correctChars = real;
         }
         return correctChars;

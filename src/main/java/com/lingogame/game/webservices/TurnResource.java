@@ -31,7 +31,6 @@ public class TurnResource {
         randomword = wordService.returnRandomWord(length);
         String firstLetter = wordService.returnHint(numberOfLines);
         Turn t = new Turn();
-        //
         t.setHint(firstLetter);
         return t;
     }
@@ -46,6 +45,7 @@ public class TurnResource {
         turn.setGame(g);
         turn.setRandomWord(randomword);
         Turn t = turnService.correctGuessedChars(turn, randomword); //get new turn object.
+        t.getGame().getState();
         randomword = t.getRandomWord();
         return new ResponseEntity<>(t, HttpStatus.CREATED);
     }

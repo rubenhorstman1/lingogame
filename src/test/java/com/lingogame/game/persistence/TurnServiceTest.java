@@ -141,17 +141,17 @@ class TurnServiceTest {
         return Stream.of(
                 Arguments.of(input = new Turn(
                                 "hahah","hahahd",5, game3,
-                                "invalid, invalid, invalid, invalid, invalid, invalid","Het gerade woord is niet de juiste lengte"
+                                "Het gerade woord is niet de juiste lengte",""
                         ),
                         expected = new Turn(
                                 "hahah","hahahd",5, game2,
-                                "invalid, invalid, invalid, invalid, invalid, invalid","Het gerade woord is niet de juiste lengte")),
+                                "Het gerade woord is niet de juiste lengte","")),
                 Arguments.of(input = new Turn(
                         "hahah","blahaha",4, game3,
-                        "absent, absent,correct, correct, correct","Het gerade woord is niet de juiste lengte"
+                        "Het gerade woord is niet de juiste lengte","h____"
                 ), expected = new Turn(
                         "hahah","blahaha",5, game3,
-                        "invalid, invalid, invalid, invalid, invalid, invalid, invalid, ","Het gerade woord is niet de juiste lengte"
+                        "Het gerade woord is niet de juiste lengte","h____"
                 )),
                 Arguments.of(input = new Turn(
                                 "hahah","hahah",0, game3,
@@ -198,7 +198,7 @@ class TurnServiceTest {
                 "absent, absent,correct, correct, correct",""
         ), expected = new Turn(
                 "hahah","blahaha",5, game3,
-                "invalid, invalid, invalid, invalid, invalid, invalid, invalid, ","Het gerade woord is niet de juiste lengte"
+                "Het gerade woord is niet de juiste lengte",""
         )),Arguments.of(input = new Turn(
                 "hahah","hahaa",4, game3,
                 "correct, correct,correct, absent, absent","hah__"
