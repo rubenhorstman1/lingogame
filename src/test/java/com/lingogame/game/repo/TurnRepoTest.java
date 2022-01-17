@@ -42,7 +42,7 @@ class TurnRepoTest {
         System.out.println(t.getId());
         ts.add(t);
 
-        List<Turn> turns3 = turnRepo.findAllTurnsById(3);
+        List<Turn> turns3 = turnRepo.findAllTurnsById(2);
         System.out.println(turns3);
 
         assertEquals(turns3.get(0).getHint(), ts.get(0).getHint());
