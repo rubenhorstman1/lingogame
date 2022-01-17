@@ -46,7 +46,6 @@ class TurnRepoTest {
         System.out.println(turns3);
 
         assertEquals(turns3.get(0).getHint(), ts.get(0).getHint());
-        //assertEquals(turns3.get(0).getId(), ts.get(0).getId());
         assertEquals(turns3.get(0).getRandomWord(), ts.get(0).getRandomWord());
         assertEquals(turns3.get(0).getMistakes(), ts.get(0).getMistakes());
         assertEquals(turns3.get(0).getGame().getScore(), ts.get(0).getGame().getScore());
